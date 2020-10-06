@@ -28,7 +28,7 @@ $primary = $params->get('theme_primary', '');
     <div class="astroid-presets">
         <?php foreach ($presets as $presetname => $preset) {
             $uri->setVar('preset', $presetname);
-            $active = $preset['preset']['theme_primary'] == $primary;
+            $active = (@$preset['preset']['theme_primary'] == $primary);
         ?>
             <a class="d-block border text-center bg-light mb-4<?php echo $active ? ' border-primary' : ''; ?>" title="<?php echo $preset['title']; ?>" href="<?php echo $uri->toString(); ?>">
                 <div class="astroid-preset">

@@ -23,15 +23,20 @@ class plgSystemAstroid_presets_switcher extends JPlugin
 
     public function onBeforeRender()
     {
+        $params = $this->params;
+
+        $position = $params->get('position', 'left');
+        $alignment = $params->get('alignment', 'top');
+
         $style = '.astroid-preset-switcher{
             position: fixed;
             top: 0;
-            left: -200px;
+            ' . $position . ': -200px;
             height: 100vh;
             width: 200px;
             box-shadow: none;
             z-index: 99999;
-            transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: ' . $position . ' 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
         }
         .astroid-preset-switcher .astroid-presets{
@@ -40,9 +45,9 @@ class plgSystemAstroid_presets_switcher extends JPlugin
             width: 100%;
         }
         .astroid-preset-switcher.open{
-            left: 0px;
+            ' . $position . ': 0px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
-            transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: ' . $position . ' 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .astroid-preset-switcher-toggle{
             position: absolute;
@@ -50,9 +55,9 @@ class plgSystemAstroid_presets_switcher extends JPlugin
             width: 40px;
             height: 40px;
             display: block;
-            top: 0;
-            right: 0;
-            margin-right: -40px;
+            ' . ($alignment == 'top' ? 'top:0' : ($alignment == 'bottom' ? 'bottom:0' : 'top: calc(50% - 20px)')) . ';
+            ' . ($position == 'left' ? 'right' : 'left') . ': 0;
+            margin-' . ($position == 'left' ? 'right' : 'left') . ': -40px;
             text-align: center;
             line-height: 40px;
             cursor: pointer;

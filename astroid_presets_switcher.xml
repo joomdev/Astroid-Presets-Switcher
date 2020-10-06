@@ -15,6 +15,18 @@
         <folder>tmpl</folder>
     </files>
     <config>
-        <fields name="params"></fields>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="position" type="radio" default="left" label="Position" class="btn-group">
+                    <option value="left">Left</option>
+                    <option value="right">Right</option>
+                </field>
+                <field name="alignment" type="radio" default="top" label="Alignment" class="btn-group">
+                    <option value="top">Top</option>
+                    <option value="middle">Middle</option>
+                    <option value="bottom">Bottom</option>
+                </field>
+            </fieldset>
+        </fields>
     </config>
 </extension>
