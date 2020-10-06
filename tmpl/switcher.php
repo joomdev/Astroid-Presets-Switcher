@@ -15,50 +15,6 @@ use Joomla\CMS\Uri\Uri;
 
 $uri = Uri::getInstance();
 
-$style = '.astroid-preset-switcher{
-    position: fixed;
-    top: 0;
-    left: -200px;
-    height: 100vh;
-    width: 200px;
-    box-shadow: none;
-    z-index: 99999;
-    transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    display: flex;
-}
-.astroid-preset-switcher .astroid-presets{
-    overflow-y: auto;
-    height: 100%;
-    width: 100%;
-}
-.astroid-preset-switcher.open{
-    left: 0px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
-    transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.astroid-preset-switcher-toggle{
-    position: absolute;
-    z-index: 1;
-    width: 40px;
-    height: 40px;
-    display: block;
-    top: 0;
-    right: 0;
-    margin-right: -40px;
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
-}
-';
-
-$script = 'function toggleAstroidPresets(){
-    document.querySelector(".astroid-preset-switcher").classList.toggle("open");
-}';
-
-$document = Framework::getDocument();
-$document->addStyleDeclaration($style);
-$document->addScriptDeclaration($script);
-
 $presets = Framework::getTemplate()->getPresets();
 if (empty($presets)) {
     return;
