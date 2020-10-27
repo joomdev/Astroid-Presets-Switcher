@@ -33,7 +33,7 @@ $primary = $params->get('theme_primary', '');
             <a class="d-block border text-center bg-light mb-4<?php echo $active ? ' border-primary' : ''; ?>" title="<?php echo $preset['title']; ?>" href="<?php echo $uri->toString(); ?>">
                 <div class="astroid-preset">
                     <?php if (!empty($preset['thumbnail'])) { ?>
-                        <img src="<?php echo $preset['thumbnail']; ?>" />
+                        <img src="<?php echo $preset['thumbnail']; ?>" alt="<?php echo $preset['title']; ?>"/>
                     <?php } ?>
                     <span class="small text-uppercase font-weight-bold"><?php echo $preset['title']; ?></span>
                 </div>
